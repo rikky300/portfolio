@@ -1,0 +1,232 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f8f8f8;
+  --border: #e0e0e0;
+  --text: #111111;
+  --muted: #666666;
+  --accent: #333333;
+  --radius: 4px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+a { color: var(--text); text-decoration: underline; }
+a:hover { color: var(--muted); }
+
+nav {
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  height: 52px;
+}
+nav .brand {
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--text);
+}
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+nav ul a {
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+nav ul a:hover, nav ul a.active {
+  color: var(--text);
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.hero {
+  padding: 3rem 0 2.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+}
+.hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.hero .subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+section h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+section h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+}
+
+ul.list {
+  list-style: none;
+  padding: 0;
+}
+ul.list li {
+  padding: 0.45rem 0;
+  padding-left: 1rem;
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.93rem;
+}
+ul.list li:last-child { border-bottom: none; }
+ul.list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+.nav-list li {
+  border-bottom: 1px solid var(--border);
+}
+.nav-list li:first-child {
+  border-top: 1px solid var(--border);
+}
+.nav-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.93rem;
+}
+.nav-list a:hover { color: var(--muted); }
+.nav-list .desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.box h3 { margin-top: 0; }
+
+.prose p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.prose p:last-child { margin-bottom: 0; }
+
+.activity-list {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.activity-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.activity-meta {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  padding-top: 0.1rem;
+}
+.activity-body p {
+  font-size: 0.93rem;
+  margin-bottom: 0.6rem;
+}
+.activity-body a {
+  font-size: 0.88rem;
+}
+.sep {
+  margin: 0 0.4rem;
+  color: var(--border);
+}
+
+.page-links-section { margin-top: 3rem; }
+
+@media (max-width: 500px) {
+  .activity-item { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+}
+.back-link:hover { color: var(--text); }
+
+.tag {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0.15rem;
+}
+
+.badge {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--surface);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  border-top: 1px solid var(--border);
+  margin-top: 4rem;
+}
+
+@media (max-width: 600px) {
+  nav { gap: 1.5rem; padding: 0 1rem; }
+  nav ul { gap: 1rem; }
+  main { padding: 2rem 1rem 4rem; }
+  .hero h1 { font-size: 1.5rem; }
+}
