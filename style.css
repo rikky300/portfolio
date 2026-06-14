@@ -134,11 +134,9 @@ ul.list li::before {
 }
 
 .box {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1rem;
+  border-top: 2px solid var(--border);
+  padding: 1.25rem 0;
+  margin-bottom: 0.5rem;
 }
 .box h3 { margin-top: 0; }
 

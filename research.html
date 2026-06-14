@@ -5,6 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>研究・学習 | Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ]
+    });"></script>
+  <style>
+    .article-section { margin-bottom: 3rem; }
+    .article-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: none;
+      letter-spacing: 0;
+      border-bottom: 2px solid var(--text);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.25rem;
+    }
+    .article-section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 2rem 0 0.6rem;
+      border-left: 3px solid var(--border);
+      padding-left: 0.7rem;
+    }
+    .article-section p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.9;
+    }
+    .article-section ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .article-section ul li {
+      font-size: 0.93rem;
+      margin-bottom: 0.4rem;
+      line-height: 1.8;
+    }
+    .math-block {
+      overflow-x: auto;
+      margin: 1.25rem 0;
+      padding: 0.5rem 0;
+    }
+    .note {
+      border-left: 3px solid var(--border);
+      padding: 0.6rem 1rem;
+      margin: 1rem 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .toc {
+      border: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 0.88rem;
+    }
+    .toc p {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 0.88rem;
+    }
+    .toc ol {
+      padding-left: 1.25rem;
+      margin: 0;
+    }
+    .toc li { margin-bottom: 0.25rem; }
+    .toc a { color: var(--muted); }
+    .toc a:hover { color: var(--text); }
+    code {
+      font-family: 'Menlo', 'Consolas', monospace;
+      font-size: 0.88em;
+      background: var(--surface);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    .cite-marker {
+      font-size: 0.8em;
+      vertical-align: super;
+      margin-left: 0.1em;
+    }
+    .cite-marker a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .cite-marker a:hover { color: var(--text); }
+    .ref-list {
+      padding-left: 1.5rem;
+      margin: 0;
+    }
+    .ref-list li {
+      font-size: 0.88rem;
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+    .ref-list li a { color: var(--muted); }
+    .ref-list li a:hover { color: var(--text); }
+  </style>
 </head>
 <body>
 <nav>
@@ -22,76 +125,206 @@
 <main>
   <a class="back-link" href="index.html">← ホームへ戻る</a>
 
-  <section>
-    <h2>研究テーマ</h2>
-    <div class="prose">
-      <p>画像復元（Image Restoration）に拡散モデルを応用する研究に取り組んでいる。手ブレやノイズなどで劣化した画像から元の画像を推定する問題に対し、数学的な解釈性を保ちながら拡散モデルを組み込む手法の開発を目指している。</p>
-      <p>理論寄りの研究室に所属しており、実装に多くの時間を割いている。純粋な理論よりも、その理論をどう実用化するかを考えることに面白さを感じており、Claude Code などの AI コーディングツールを活用してアイデアをすぐ実装・検証するサイクルが自分のスタイルに合っている。</p>
-    </div>
-  </section>
+  <div class="hero" style="padding-bottom:1.5rem; margin-bottom:1.5rem;">
+    <h1 style="font-size:1.6rem;">研究・学習メモ</h1>
+    <p class="subtitle">機械学習の基礎から画像復元・拡散モデルまで</p>
+  </div>
 
-  <section>
-    <h2>機械学習の基礎</h2>
-    <div class="box">
-      <h3>線形・非線形モデルと勾配降下法</h3>
-      <div class="prose">
-        <p>データから関数を学習すること——入力 x に対して出力 y を返す f(x) のパラメータを最適化する——が機械学習の基本的な枠組みである。回帰・分類などのタスクに対して損失関数（平均二乗誤差など）を定義し、勾配降下法でパラメータを更新する。</p>
-      </div>
-    </div>
-    <div class="box">
-      <h3>ニューラルネットワークとディープラーニング</h3>
-      <div class="prose">
-        <p>パーセプトロンによって特徴量の重みづけを自動化し、多層化（多層パーセプトロン）によって非線形関数も学習できるようになった。誤差逆伝播法で効率よく勾配を計算し、活性化関数の工夫・GPU の活用・データ量の増加などがディープラーニングの発展を支えた。</p>
-        <p>CNN（畳み込みニューラルネットワーク）の登場により、画像の局所的な特徴を効率よく捉えられるようになり、画像分類の精度が大幅に向上した。</p>
-      </div>
-    </div>
-  </section>
+  <div class="toc">
+    <p>目次</p>
+    <ol>
+      <li><a href="#ml-basics">機械学習の基礎</a></li>
+      <li><a href="#deep-learning">ニューラルネットワークとディープラーニング</a></li>
+      <li><a href="#generative">生成モデル（VAE・拡散モデル）</a></li>
+      <li><a href="#restoration">画像復元と最適化</a></li>
+      <li><a href="#pnp">Plug-and-Play と提案手法</a></li>
+      <li><a href="#llm">LLM / VLM（勉強中）</a></li>
+    </ol>
+  </div>
 
-  <section>
-    <h2>生成モデルと拡散モデル</h2>
-    <div class="box">
-      <h3>VAE（変分オートエンコーダ）</h3>
-      <div class="prose">
-        <p>教師なし学習で、入力を潜在空間に圧縮してから再構成する過程を学習することで画像を生成する。エンコーダが入力を正規分布に近い状態に圧縮し、デコーダがその分布からサンプリングして元の画像を生成するよう学習される。通常のオートエンコーダと異なり、新しい画像の生成が可能。</p>
-      </div>
-    </div>
-    <div class="box">
-      <h3>拡散モデル（Diffusion Model）</h3>
-      <div class="prose">
-        <p>2つの系譜——スコアベースと熱力学着想——が融合して発展した生成モデル。</p>
-        <p><strong>スコアベース：</strong>確率密度関数そのものではなくその勾配（スコア）を学習し、スコアに沿ってサンプリングすることで画像を生成する。複数ノイズレベルでスコアを学習することで、確率密度が薄い領域でも正しく進める。</p>
-        <p><strong>熱力学系譜（DDPM など）：</strong>クリーンな画像に段階的にノイズを加えてゆく拡散過程を定義し、その逆過程（デノイジング）を学習する。学習済みモデルに純粋なノイズを入力することで新しい画像を生成できる。</p>
-      </div>
-    </div>
-  </section>
+  <!-- 1 -->
+  <div class="article-section" id="ml-basics">
+    <h2>1. 機械学習の基礎</h2>
 
-  <section>
-    <h2>画像復元と提案手法</h2>
-    <div class="box">
-      <h3>画像復元の問題設定</h3>
-      <div class="prose">
-        <p>カメラの手ブレなどで劣化した観測画像 y から、元画像 x* を推定する問題。y = Ax* + n（A: 劣化行列、n: ノイズ）と定式化し、データ忠実項（観測との整合性）と正則化項（画像の先験情報）の和を最小化する最適化問題として解く。</p>
-      </div>
-    </div>
-    <div class="box">
-      <h3>Plug-and-Play と提案アプローチ</h3>
-      <div class="prose">
-        <p>数式で定義された正則化項を用いる Model-driven 手法は解釈性・収束保証に優れ、DNN を使う Data-driven 手法は精度が高い。Plug-and-Play はこれらを組み合わせ、DNN をデノイザーとして最適化の枠組みに組み込む手法である。</p>
-        <p>提案手法では、この Plug-and-Play に拡散モデルを組み込む。ただし既存手法は確率的サンプリングが主体で数学的解釈性に乏しい。そこで「ネットワークが勾配の形になること」と「Lipschitz 定数を満たすこと」の2つの制約を課した拡散モデルを学習し、数学的に良い性質を保ちながら高品質な画像復元を実現した。</p>
-        <p>制約のない既存手法（DPIR など）と同等以上の復元性能を達成。現在は制約を完全に満たしつつ表現力も維持するための学習手法を研究中。</p>
-      </div>
-    </div>
-  </section>
+    <p>機械学習の目標は、データから関数 $f$ を学習することである。入力 $x$ に対して出力 $y$ を返す対応 $y = f(x)$ のパラメータを、データをもとに最適化する。</p>
 
-  <section>
-    <h2>興味として学んでいること</h2>
-    <div class="box">
-      <h3>LLM / VLM</h3>
-      <div class="prose">
-        <p>食事解析アプリ Zubora での Gemini API 活用をきっかけに、LLM・VLM の仕組みと応用に興味を持ち、学習を進めている。今夏のインターンなどを通じて実際に扱う機会を増やし、理解を深めたいと考えている。理解が進めばアプリの解析精度改善にも直結するため、調べながら着実に実装に反映していく予定。</p>
-      </div>
+    <p>例えば線形回帰では $y = ax + b$ のパラメータ $a, b$ を求めたい。$N$ 個のデータ $\{(x_i, y_i)\}$ に対して損失関数として平均二乗誤差（MSE）を定義する。</p>
+
+    <div class="math-block">
+      $$L(a, b) = \frac{1}{N} \sum_{i=1}^{N} \bigl(y_i - (ax_i + b)\bigr)^2$$
     </div>
-  </section>
+
+    <p>この損失を最小化するために勾配降下法を用いる。パラメータ $a$ に関する勾配は</p>
+
+    <div class="math-block">
+      $$\frac{\partial L}{\partial a} = -\frac{2}{N} \sum_{i=1}^{N} x_i \bigl(y_i - (ax_i + b)\bigr)$$
+    </div>
+
+    <p>となり、学習率 $\lambda$ を用いてパラメータを更新する。</p>
+
+    <div class="math-block">
+      $$a \leftarrow a - \lambda \frac{\partial L}{\partial a}$$
+    </div>
+
+    <p>これを繰り返すことで損失が小さくなる方向にパラメータが更新される。</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="article-section" id="deep-learning">
+    <h2>2. ニューラルネットワークとディープラーニング</h2>
+
+    <p>線形モデルでは表現できない非線形な関係を学習するために、パーセプトロンを多層に積み重ねた多層パーセプトロン（MLP）が登場した。$L$ 層のネットワークを以下のように表す。</p>
+
+    <div class="math-block">
+      $$\boldsymbol{h}^{(l)} = \sigma\!\left(\boldsymbol{W}^{(l)} \boldsymbol{h}^{(l-1)} + \boldsymbol{b}^{(l)}\right)$$
+    </div>
+
+    <p>ここで $\boldsymbol{W}^{(l)}$ は重み行列、$\boldsymbol{b}^{(l)}$ はバイアス、$\sigma$ は ReLU などの活性化関数である。パラメータの更新には誤差逆伝播法（バックプロパゲーション）を用いて連鎖律で勾配を効率よく計算する。</p>
+
+    <h3>CNN（畳み込みニューラルネットワーク）</h3>
+
+    <p>画像に対しては全結合層ではなく畳み込み層を用いる。フィルタを空間的に共有することで局所的な特徴（エッジ・テクスチャなど）を効率よく捉え、画像分類の精度が飛躍的に向上した。</p>
+  </div>
+
+  <!-- 3 -->
+  <div class="article-section" id="generative">
+    <h2>3. 生成モデル（VAE・拡散モデル）</h2>
+
+    <p>生成モデルの目標は、自然画像の真の確率密度関数 $p(\boldsymbol{x})$ を近似し、そこからサンプリングすることで新しい画像を生成することである。</p>
+
+    <h3>VAE（変分オートエンコーダ）<span class="cite-marker"><a href="#ref1">[1]</a></span></h3>
+
+    <p>潜在変数 $\boldsymbol{z}$ を経由して画像を生成するモデル。周辺尤度 $p(\boldsymbol{x})$ の最大化は計算困難なため、代わりに Evidence Lower Bound（ELBO）を最大化する。</p>
+
+    <div class="math-block">
+      $$\mathcal{L}_{\text{ELBO}} = \mathbb{E}_{q_\phi(\boldsymbol{z}|\boldsymbol{x})}\!\left[\log p_\theta(\boldsymbol{x}|\boldsymbol{z})\right] - D_{\mathrm{KL}}\!\left(q_\phi(\boldsymbol{z}|\boldsymbol{x}) \,\|\, p(\boldsymbol{z})\right)$$
+    </div>
+
+    <p>第1項は再構成誤差（デコーダの性能）、第2項はエンコーダの出力分布を事前分布 $p(\boldsymbol{z}) = \mathcal{N}(\boldsymbol{0}, \boldsymbol{I})$ に近づける正則化項である。生成時は $\boldsymbol{z} \sim \mathcal{N}(\boldsymbol{0}, \boldsymbol{I})$ からサンプリングし、学習済みデコーダに通す。</p>
+
+    <h3>拡散モデル（Diffusion Model）</h3>
+
+    <p>拡散モデルには「スコアベース」と「熱力学着想」の2つの系譜があり、現在は融合して発展している。</p>
+
+    <p><strong>スコアベース <span class="cite-marker"><a href="#ref2">[2]</a></span>：</strong>確率密度そのものではなくスコア $\nabla_{\boldsymbol{x}} \log p(\boldsymbol{x})$ をニューラルネットで近似し、Langevin ダイナミクスでサンプリングする。</p>
+
+    <div class="math-block">
+      $$\boldsymbol{x}_{t+1} = \boldsymbol{x}_t + \epsilon\, \nabla_{\boldsymbol{x}} \log p(\boldsymbol{x}_t) + \sqrt{2\epsilon}\, \boldsymbol{z}_t, \quad \boldsymbol{z}_t \sim \mathcal{N}(\boldsymbol{0}, \boldsymbol{I})$$
+    </div>
+
+    <p>単一ノイズレベルでは確率密度が薄い領域でスコアの推定が不安定になるため、複数ノイズレベル $\{\sigma_i\}$ でスコアを学習し、ノイズレベルを大から小へ徐々に下げながらサンプリングする。</p>
+
+    <p><strong>DDPM（熱力学着想）<span class="cite-marker"><a href="#ref3">[3]</a></span>：</strong>クリーンな画像 $\boldsymbol{x}_0$ に段階的にガウスノイズを加える拡散過程を定義する。</p>
+
+    <div class="math-block">
+      $$q(\boldsymbol{x}_t \mid \boldsymbol{x}_0) = \mathcal{N}\!\left(\boldsymbol{x}_t;\, \sqrt{\bar{\alpha}_t}\,\boldsymbol{x}_0,\, (1 - \bar{\alpha}_t)\boldsymbol{I}\right)$$
+    </div>
+
+    <p>ここで $\bar{\alpha}_t = \prod_{s=1}^{t}(1-\beta_s)$ はノイズスケジュールによって決まる係数。学習目標は加えられたノイズ $\boldsymbol{\epsilon}$ の推定であり、目的関数は</p>
+
+    <div class="math-block">
+      $$\mathcal{L} = \mathbb{E}_{\boldsymbol{x}_0,\, \boldsymbol{\epsilon},\, t}\left[\left\|\boldsymbol{\epsilon} - \boldsymbol{\epsilon}_\theta\!\left(\boldsymbol{x}_t,\, t\right)\right\|^2\right]$$
+    </div>
+
+    <p>となる。推論時は純粋なノイズ $\boldsymbol{x}_T \sim \mathcal{N}(\boldsymbol{0}, \boldsymbol{I})$ から逆過程をたどることで画像を生成する。</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="article-section" id="restoration">
+    <h2>4. 画像復元と最適化</h2>
+
+    <p>手ブレ・ノイズなどで劣化した観測画像 $\boldsymbol{y}$ から元画像 $\boldsymbol{x}^*$ を推定する問題を考える。劣化モデルは</p>
+
+    <div class="math-block">
+      $$\boldsymbol{y} = \boldsymbol{A}\boldsymbol{x}^* + \boldsymbol{n}$$
+    </div>
+
+    <p>と表される。ここで $\boldsymbol{A}$ は劣化行列（ぼかし・ダウンサンプリングなど）、$\boldsymbol{n} \sim \mathcal{N}(\boldsymbol{0}, \sigma^2 \boldsymbol{I})$ はガウスノイズである。</p>
+
+    <p>元画像の推定は次の最適化問題として定式化される。</p>
+
+    <div class="math-block">
+      $$\hat{\boldsymbol{x}} \in \operatorname*{argmin}_{\boldsymbol{x}} \left( \underbrace{\frac{1}{2}\|\boldsymbol{y} - \boldsymbol{A}\boldsymbol{x}\|^2}_{\text{データ忠実項}} + \underbrace{g(\boldsymbol{x})}_{\text{正則化項}} \right)$$
+    </div>
+
+    <ul>
+      <li><strong>データ忠実項：</strong>観測 $\boldsymbol{y}$ との整合性を保つ</li>
+      <li><strong>正則化項 $g(\boldsymbol{x})$：</strong>画像の先験情報（自然画像らしさ）を解に組み込む</li>
+    </ul>
+
+    <p>$g(\boldsymbol{x})$ の設計方針によって大きく2つのアプローチに分かれる。</p>
+
+    <ul>
+      <li><strong>Model-driven：</strong>$\ell_1$ ノルム（スパース性）など数式で定義された正則化項を使う。解釈性・収束保証に優れる。</li>
+      <li><strong>Data-driven：</strong>劣化画像 → 復元画像を End-to-End の DNN で学習する。精度は高いが最適化の観点での解釈性が低い。</li>
+    </ul>
+  </div>
+
+  <!-- 5 -->
+  <div class="article-section" id="pnp">
+    <h2>5. Plug-and-Play と提案手法</h2>
+
+    <h3>Plug-and-Play（PnP）<span class="cite-marker"><a href="#ref4">[4]</a></span></h3>
+
+    <p>Model-driven の枠組みを保ちつつ、正則化項の近接写像（proximal operator）を DNN デノイザーで置き換える手法が Plug-and-Play である。ADMM や HQS などのアルゴリズムに組み込まれ、解釈性と精度を両立する。</p>
+
+    <p>HQS（Half Quadratic Splitting）では補助変数 $\boldsymbol{z}$ を導入し、</p>
+
+    <div class="math-block">
+      $$\boldsymbol{z}^{(k+1)} = \operatorname{Denoiser}_\sigma\!\left(\boldsymbol{x}^{(k)}\right), \qquad
+      \boldsymbol{x}^{(k+1)} = \left(\boldsymbol{A}^\top \boldsymbol{A} + \mu \boldsymbol{I}\right)^{-1}\!\left(\boldsymbol{A}^\top \boldsymbol{y} + \mu\, \boldsymbol{z}^{(k+1)}\right)$$
+    </div>
+
+    <p>と交互に更新する。デノイザーを DNN に置き換えることで高精度な復元が可能になる。</p>
+
+    <h3>提案手法：解釈性を持つ拡散モデルの PnP 組み込み</h3>
+
+    <p>拡散モデルを PnP のデノイザーとして組み込む手法が近年提案されているが、確率的サンプリングがメインであり最適化問題としての解釈が不明瞭である。医療画像など信頼性が求められる場面では、「この復元結果は数学的にどのような問題の解か」が重要になる。</p>
+
+    <p>提案手法では、Hurault et al. <span class="cite-marker"><a href="#ref5">[5]</a></span> が提案した Gradient Step Denoiser の枠組みを拡散モデルに拡張する。具体的には拡散モデルのデノイザーに以下の2つの制約を課す。</p>
+
+    <ul>
+      <li><strong>勾配制約：</strong>デノイザー $D_\theta(\boldsymbol{x})$ がポテンシャル関数 $\phi(\boldsymbol{x})$ の勾配として表せること。すなわち $D_\theta(\boldsymbol{x}) = \nabla_{\boldsymbol{x}} \phi(\boldsymbol{x})$</li>
+      <li><strong>Lipschitz 制約：</strong>ネットワークの Lipschitz 定数 $L$ が有界であること。
+        <div class="math-block">
+          $$\|D_\theta(\boldsymbol{x}) - D_\theta(\boldsymbol{x}')\| \leq L \|\boldsymbol{x} - \boldsymbol{x}'\| \quad \forall\, \boldsymbol{x}, \boldsymbol{x}'$$
+        </div>
+      </li>
+    </ul>
+
+    <p>この2つを満たすことで、最適化の観点から収束保証のある PnP フレームワークに拡散モデルを組み込むことができる。Lipschitz 制約はネットワークの各層に NablaResNet 構造と重みのスペクトル正規化を組み合わせて実装している。</p>
+
+    <h3>結果と課題</h3>
+
+    <p>制約なしの既存手法 DPIR <span class="cite-marker"><a href="#ref6">[6]</a></span> と比較して同等以上の復元性能を達成した。一方で、罰則関数によるソフト制約のため学習が進むにつれて Lipschitz 定数が境界を超えるケースが発生する。現在はハードな制約を維持しつつ表現力も上げる学習手法を試行中。</p>
+
+    <div class="note">
+      現在ジャーナル投稿に向けて、シミュレーション実験と Introduction のブラッシュアップに取り組んでいる。
+    </div>
+  </div>
+
+  <!-- References -->
+  <div class="article-section" id="references">
+    <h2>参考文献</h2>
+    <ol class="ref-list">
+      <li id="ref1">D. P. Kingma and M. Welling, "Auto-Encoding Variational Bayes," in <em>Proc. ICLR</em>, 2014. <a href="https://arxiv.org/abs/1312.6114" target="_blank" rel="noopener">arXiv:1312.6114</a></li>
+      <li id="ref2">Y. Song and S. Ermon, "Generative Modeling by Estimating Gradients of the Data Distribution," in <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, vol. 32, 2019. <a href="https://arxiv.org/abs/1907.05600" target="_blank" rel="noopener">arXiv:1907.05600</a></li>
+      <li id="ref3">J. Ho, A. Jain, and P. Abbeel, "Denoising Diffusion Probabilistic Models," in <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, vol. 33, pp. 6840–6851, 2020. <a href="https://arxiv.org/abs/2006.11239" target="_blank" rel="noopener">arXiv:2006.11239</a></li>
+      <li id="ref4">S. V. Venkatakrishnan, C. A. Bouman, and B. Wohlberg, "Plug-and-Play Priors for Model Based Reconstruction," in <em>Proc. IEEE GlobalSIP</em>, pp. 945–948, 2013. <a href="https://doi.org/10.1109/GlobalSIP.2013.6737048" target="_blank" rel="noopener">DOI:10.1109/GlobalSIP.2013.6737048</a></li>
+      <li id="ref5">S. Hurault, A. Leclaire, and N. Papadakis, "Gradient Step Denoiser for Convergent Plug-and-Play," in <em>Proc. ICLR</em>, 2022. <a href="https://arxiv.org/abs/2110.03220" target="_blank" rel="noopener">arXiv:2110.03220</a></li>
+      <li id="ref6">K. Zhang, Y. Li, W. Zuo, L. Zhang, L. Van Gool, and R. Timofte, "Plug-and-Play Image Restoration with Deep Denoiser Prior," <em>IEEE Trans. Pattern Anal. Mach. Intell.</em>, vol. 44, no. 10, pp. 6360–6376, 2022. <a href="https://arxiv.org/abs/2008.13751" target="_blank" rel="noopener">arXiv:2008.13751</a></li>
+    </ol>
+  </div>
+
+  <!-- 6 -->
+  <div class="article-section" id="llm">
+    <h2>6. LLM / VLM（勉強中）</h2>
+
+    <p>食事解析アプリ Zubora での Gemini API 活用をきっかけに、大規模言語モデル（LLM）・Vision-Language Model（VLM）の仕組みと応用に興味を持って学習中。Transformer のアーキテクチャや Attention 機構の基礎から、RAG・プロンプトエンジニアリングの実践まで幅広く調べている。</p>
+
+    <p>今夏のインターンなどを通じて実際に扱う機会を増やし、アプリの解析精度改善にも直結させていく予定。</p>
+  </div>
+
 </main>
 
 <footer>© 2025 Riki Suzuki</footer>
