@@ -142,6 +142,16 @@ ul.list li::before {
 }
 .box h3 { margin-top: 0; }
 
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.profile-grid h3 {
+  margin-top: 0;
+}
+
 .prose p {
   margin-bottom: 1rem;
   font-size: 0.95rem;

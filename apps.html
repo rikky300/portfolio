@@ -8,10 +8,9 @@
 </head>
 <body>
 <nav>
-  <span class="brand">Portfolio</span>
+  <span class="brand">Riki Suzuki</span>
   <ul>
     <li><a href="index.html">Home</a></li>
-    
     <li><a href="research.html">研究・学習</a></li>
     <li><a href="publications.html">学会発表</a></li>
     <li><a href="apps.html" class="active">アプリ開発</a></li>
@@ -31,18 +30,10 @@
         <h3 style="margin:0;">Snobreath — スマホ依存対策アプリ</h3>
         <span class="badge">iOS</span>
       </div>
-      <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">スマートフォンへの依存を軽減するためのiOSアプリ</p>
-      <h3>UI・機能</h3>
-      <ul class="list">
-        <li>（主要機能・画面構成を追記）</li>
-        <li>（ユーザーの使い方・フローを追記）</li>
-      </ul>
-      <h3>開発・運用</h3>
-      <ul class="list">
-        <li>（使用技術：Swift / SwiftUI など追記）</li>
-        <li>（ダウンロード数・利用状況を追記）</li>
-        <li>（収益状況を追記）</li>
-      </ul>
+      <div class="prose">
+        <p>SNS アプリを開いた際に一旦立ち止まるための画面を表示し、本当に開くかどうかを確認してから開く仕様。当初は iPhone のショートカット機能と組み合わせた実装だったが、設定が煩雑で離脱が発生しやすいと考え、アプリ内から直接制限をかけられる仕様に改善した。</p>
+        <p>Claude Code で開発。サブスクは月200円で、現在2人が登録中。</p>
+      </div>
     </div>
 
     <div class="box">
@@ -50,23 +41,23 @@
         <h3 style="margin:0;">Zubora — 食事解析アプリ</h3>
         <span class="badge">iOS</span>
       </div>
-      <p style="color:var(--muted); font-size:0.9rem; margin-bottom:1rem;">写真を撮るだけで食事内容を自動解析するアプリ</p>
-      <h3>UI・機能</h3>
+      <div class="prose">
+        <p>写真を撮るだけで食事の栄養が自動で記録できるアプリ。大学内のコンビニご飯が多い中で、何を選ぶか迷うことや健康面への漠然とした不安をきっかけに開発した。大手アプリは機能が多すぎたり最初から有料だったりすることが多いため、シンプルさを重視し、1日2回まで無料・それ以上は有料という設計にした。</p>
+        <p>記録した食事履歴をもとに次のおすすめを提案する機能も搭載。リリース後は解析精度の課題を特定し、継続的に改善を重ねており、サブスク収益化も達成している。</p>
+      </div>
+
+      <h3>食事解析の仕組み（2ステップ）</h3>
       <ul class="list">
-        <li>（主要機能・画面構成を追記）</li>
-        <li>（食事解析の仕組み：VLM / APIなど追記）</li>
+        <li><strong>Step 1：</strong>画像・解析用プロンプト・ユーザー補足情報を入力し、COMMERCIAL（コンビニ・パッケージ）/ HOMEMADE（家庭料理・飲食店）を判定、食品名リストを返す</li>
+        <li><strong>Step 2（COMMERCIAL）：</strong>コンビニ商品 DB（SevenElevenProducts.json）でキーワードマッチング。全品ヒット時は API 呼び出しをスキップ、未マッチ時は Gemini にフォールバック</li>
+        <li><strong>Step 2（HOMEMADE）：</strong>日本食品標準成分表2020をベースにした詳細プロンプトで栄養素を推定</li>
+        <li>画像はトークン数を抑えるためサイズを半分に圧縮して送信</li>
+        <li>出力：料理名・総カロリー・総タンパク質・総脂質・総炭水化物</li>
       </ul>
-      <h3>食事解析の仕組み</h3>
-      <ul class="list">
-        <li>（画像認識・栄養素推定の手法を追記）</li>
-        <li>（使用したモデル・APIを追記）</li>
-      </ul>
-      <h3>開発・運用</h3>
-      <ul class="list">
-        <li>（使用技術を追記）</li>
-        <li>（ダウンロード数・利用状況を追記）</li>
-        <li>（収益状況を追記）</li>
-      </ul>
+
+      <div class="prose" style="margin-top:1rem;">
+        <p>解析エンジンには Gemini 2.5 Flash-lite を使用。コンビニご飯と家庭料理をうまく解析できるよう試行錯誤中。LLM・VLM の理解を深めることで精度改善の見通しを立て、インフルエンサーマーケティングも活用してサブスク売上を伸ばしていく予定。</p>
+      </div>
     </div>
   </section>
 </main>
