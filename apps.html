@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人活動 | Portfolio</title>
+  <title>個人開発 | Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    });
+  </script>
 </head>
 <body>
 <nav>
@@ -12,7 +18,7 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="research.html">研究・学習</a></li>
-    <li><a href="apps.html" class="active">個人活動</a></li>
+    <li><a href="apps.html" class="active">個人開発</a></li>
     <!-- <li><a href="business.html">事業</a></li> -->
     <!-- <li><a href="career.html">キャリア</a></li> -->
   </ul>
@@ -22,7 +28,36 @@
   <a class="back-link" href="index.html">← ホームへ戻る</a>
 
   <section>
-    <h2>個人活動</h2>
+    <h2>個人開発</h2>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">nanoインフルエンサーPRシミュレーション</h3>
+      </div>
+      <div class="prose">
+        <p>個人開発者・小規模ブランドが、フォロワー1,000〜10,000人規模の「nanoインフルエンサー」を探して費用対効果を見積もれるサービス。Zubora の解析エンジン開発を通じてインフルエンサーマーケティングに関心を持ったのがきっかけ。</p>
+        <p>YouTube・Instagramのアカウントデータを公式APIで取得 → リーチやエンゲージメントを予測するモデルの再学習 → 監視ダッシュボード更新の流れを GitHub Actions で1日4回自動実行している。</p>
+        <p><img src="https://static.zenn.studio/user-upload/3b5cc9bfa01b-20260909.png" alt="モデル監視ダッシュボード" style="max-width:100%; border:1px solid var(--border); border-radius:6px;"></p>
+        <pre class="mermaid">
+graph TD
+  H["Web検索で候補を補充&lt;br/&gt;人手（Claudeなどで）"] ==&gt;|事前にプールに追加| P
+
+  subgraph AUTO["自動ループ"]
+    direction TB
+    P[候補プール] --&gt; C[新規アカウントをAPIで収集]
+    C --&gt; T[再学習・昇格判定]
+    T --&gt; F[(Firestore に反映)]
+    F --&gt; M{しきい値チェック}
+    M --&gt;|正常| P
+  end
+
+  M --&gt; N["通知&lt;br/&gt;Slack（毎回） / メール（error時）"]
+  N -.-&gt;|プール残数が減少| H
+        </pre>
+        <p>詳しくはこちら：<a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">Instagramナノインフルエンサーのリーチ予測モデルを作った話</a> ／ <a href="https://zenn.dev/rikky300/articles/ab9c996480daf6" target="_blank" rel="noopener">新規アカウント収集・モデル再学習の自動化と監視を実装した</a></p>
+        <p><a href="https://indie-matching-v2-azure.vercel.app" target="_blank" rel="noopener">サービスを見る</a></p>
+      </div>
+    </div>
 
     <div class="box">
       <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
@@ -32,18 +67,6 @@
         <p>LLMエージェントを用いてマーケティング業務を自動化するプロジェクト。ワークフロー型のエージェント設計を採用し、eval駆動での評価・改善サイクルに取り組んでいる。</p>
         <p>詳しくはこちら：<a href="https://zenn.dev/rikky300/articles/99bae2e436dffd" target="_blank" rel="noopener">Zenn記事</a> ／ <a href="https://github.com/rikky300/marketing_agent" target="_blank" rel="noopener">GitHub</a></p>
         <p>改善の取り組み：<a href="https://zenn.dev/rikky300/articles/eb49283c9c6438" target="_blank" rel="noopener">X自動投稿AI-Workflowの改善ループ設計</a></p>
-      </div>
-    </div>
-
-    <div class="box">
-      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
-        <h3 style="margin:0;">nanoインフルエンサーPRシミュレーション</h3>
-      </div>
-      <div class="prose">
-        <p>個人開発者・小規模ブランドが、フォロワー1,000〜10,000人規模の「nanoインフルエンサー」を探して費用対効果を見積もれるサービス。Zubora の解析エンジン開発を通じてインフルエンサーマーケティングに関心を持ったのがきっかけで、大学の仲間と開発を進めている。</p>
-        <p>裏側では YouTube・Instagram のアカウントデータを収集し、リーチやエンゲージメントを予測するモデルを構築・再学習・監視するパイプラインを GitHub Actions で自動化している。精度の数値そのものより、「そのモデルに意味があるか」をベースラインと比較しながら検証することに力を入れている。</p>
-        <p>詳しくはこちら：<a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">Instagramナノインフルエンサーのリーチ予測モデルを作った話</a> ／ <a href="https://zenn.dev/rikky300/articles/ab9c996480daf6" target="_blank" rel="noopener">新規アカウント収集・モデル再学習の自動化と監視を実装した</a></p>
-        <p><a href="https://indie-matching-v2-azure.vercel.app" target="_blank" rel="noopener">サービスを見る</a></p>
       </div>
     </div>
 
