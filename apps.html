@@ -37,7 +37,6 @@
       <div class="prose">
         <p>個人開発者・小規模ブランドが、フォロワー1,000〜10,000人規模の「nanoインフルエンサー」を探して費用対効果を見積もれるサービス。Zubora の解析エンジン開発を通じてインフルエンサーマーケティングに関心を持ったのがきっかけ。</p>
         <p>YouTube・Instagramのアカウントデータを公式APIで取得 → リーチやエンゲージメントを予測するモデルの再学習 → 監視ダッシュボード更新の流れを GitHub Actions で1日4回自動実行している。</p>
-        <p><img src="https://static.zenn.studio/user-upload/3b5cc9bfa01b-20260909.png" alt="モデル監視ダッシュボード" style="max-width:100%; border:1px solid var(--border); border-radius:6px;"></p>
         <pre class="mermaid">
 graph TD
   H["Web検索で候補を補充&lt;br/&gt;人手（Claudeなどで）"] ==&gt;|事前にプールに追加| P
@@ -54,6 +53,7 @@ graph TD
   M --&gt; N["通知&lt;br/&gt;Slack（毎回） / メール（error時）"]
   N -.-&gt;|プール残数が減少| H
         </pre>
+        <p><img src="https://static.zenn.studio/user-upload/3b5cc9bfa01b-20260909.png" alt="モデル監視ダッシュボード" style="max-width:100%; border:1px solid var(--border); border-radius:6px;"></p>
         <p>詳しくはこちら：<a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">Instagramナノインフルエンサーのリーチ予測モデルを作った話</a> ／ <a href="https://zenn.dev/rikky300/articles/ab9c996480daf6" target="_blank" rel="noopener">新規アカウント収集・モデル再学習の自動化と監視を実装した</a></p>
         <p><a href="https://indie-matching-v2-azure.vercel.app" target="_blank" rel="noopener">サービスを見る</a></p>
       </div>
@@ -67,18 +67,6 @@ graph TD
         <p>LLMエージェントを用いてマーケティング業務を自動化するプロジェクト。ワークフロー型のエージェント設計を採用し、eval駆動での評価・改善サイクルに取り組んでいる。</p>
         <p>詳しくはこちら：<a href="https://zenn.dev/rikky300/articles/99bae2e436dffd" target="_blank" rel="noopener">Zenn記事</a> ／ <a href="https://github.com/rikky300/marketing_agent" target="_blank" rel="noopener">GitHub</a></p>
         <p>改善の取り組み：<a href="https://zenn.dev/rikky300/articles/eb49283c9c6438" target="_blank" rel="noopener">X自動投稿AI-Workflowの改善ループ設計</a></p>
-      </div>
-    </div>
-
-    <div class="box">
-      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
-        <h3 style="margin:0;">Snobreath — スマホ依存対策アプリ</h3>
-        <span class="badge">iOS</span>
-      </div>
-      <div class="prose">
-        <p>SNS アプリを開いた際に一旦立ち止まるための画面を表示し、本当に開くかどうかを確認してから開く仕様。当初は iPhone のショートカット機能と組み合わせた実装だったが、設定が煩雑で離脱が発生しやすいと考え、アプリ内から直接制限をかけられる仕様に改善した。</p>
-        <p>Claude Code で開発。サブスクは月200円で、現在2人が登録中。</p>
-        <p><a href="https://apps.apple.com/jp/app/%E3%82%B9%E3%83%9E%E3%83%9B%E4%BE%9D%E5%AD%98%E5%AF%BE%E7%AD%96-%E3%82%B9%E3%83%9E%E3%83%9B%E5%88%B6%E9%99%90%E3%82%A2%E3%83%97%E3%83%AA-snobreath/id6751109152" target="_blank" rel="noopener">App Store で見る</a></p>
       </div>
     </div>
 
@@ -104,6 +92,18 @@ graph TD
       <div class="prose" style="margin-top:1rem;">
         <p><a href="https://apps.apple.com/jp/app/zubora-%E5%86%99%E7%9C%9F%E3%81%A7%E9%A3%9F%E4%BA%8B%E3%81%AE%E6%A0%84%E9%A4%8A-%E3%82%AB%E3%83%AD%E3%83%AA%E3%83%BC%E8%A7%A3%E6%9E%90-%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E9%A3%AF%E6%8F%90%E6%A1%88/id6763511988" target="_blank" rel="noopener">App Store で見る</a></p>
         <p>解析エンジンには Gemini 2.5 Flash-lite を使用。コンビニご飯と家庭料理をうまく解析できるよう試行錯誤中。LLM・VLM の理解を深めることで精度改善の見通しを立て、インフルエンサーマーケティングも活用してサブスク売上を伸ばしていく予定。</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">Snobreath — スマホ依存対策アプリ</h3>
+        <span class="badge">iOS</span>
+      </div>
+      <div class="prose">
+        <p>SNS アプリを開いた際に一旦立ち止まるための画面を表示し、本当に開くかどうかを確認してから開く仕様。当初は iPhone のショートカット機能と組み合わせた実装だったが、設定が煩雑で離脱が発生しやすいと考え、アプリ内から直接制限をかけられる仕様に改善した。</p>
+        <p>Claude Code で開発。サブスクは月200円で、現在2人が登録中。</p>
+        <p><a href="https://apps.apple.com/jp/app/%E3%82%B9%E3%83%9E%E3%83%9B%E4%BE%9D%E5%AD%98%E5%AF%BE%E7%AD%96-%E3%82%B9%E3%83%9E%E3%83%9B%E5%88%B6%E9%99%90%E3%82%A2%E3%83%97%E3%83%AA-snobreath/id6751109152" target="_blank" rel="noopener">App Store で見る</a></p>
       </div>
     </div>
   </section>
