@@ -41,9 +41,9 @@
 graph TD
   H["Web検索で候補を補充&lt;br/&gt;人手（Claudeなどで）"] ==&gt;|事前にプールに追加| P
 
-  subgraph AUTO["自動ループ"]
+  subgraph AUTO["自動ループ（1日4回）"]
     direction TB
-    P[候補プール] --&gt; C[新規アカウントをAPIで収集]
+    P[候補プール] --&gt; C(["▶ 新規アカウントをAPIで収集&lt;br/&gt;（ここから開始）"])
     C --&gt; T[再学習・昇格判定]
     T --&gt; F[(Firestore に反映)]
     F --&gt; M{しきい値チェック}
@@ -52,6 +52,8 @@ graph TD
 
   M --&gt; N["通知&lt;br/&gt;Slack（毎回） / メール（error時）"]
   N -.-&gt;|プール残数が減少| H
+
+  style C fill:#2f6f4f,stroke:#2f6f4f,color:#fff,stroke-width:2px
         </pre>
         <p><img src="https://static.zenn.studio/user-upload/3b5cc9bfa01b-20260909.png" alt="モデル監視ダッシュボード" style="max-width:100%; border:1px solid var(--border); border-radius:6px;"></p>
         <p>詳しくはこちら：<a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">Instagramナノインフルエンサーのリーチ予測モデルを作った話</a> ／ <a href="https://zenn.dev/rikky300/articles/ab9c996480daf6" target="_blank" rel="noopener">新規アカウント収集・モデル再学習の自動化と監視を実装した</a></p>
