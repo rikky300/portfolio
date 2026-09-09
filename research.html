@@ -115,8 +115,7 @@
   <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="research.html" class="active">研究・学習</a></li>
-    <li><a href="publications.html">学会発表</a></li>
-    <li><a href="apps.html">アプリ開発</a></li>
+    <li><a href="apps.html">個人活動</a></li>
     <!-- <li><a href="business.html">事業</a></li> -->
     <!-- <li><a href="career.html">キャリア</a></li> -->
   </ul>
@@ -137,8 +136,8 @@
       <li><a href="#deep-learning">ニューラルネットワークとディープラーニング</a></li>
       <li><a href="#generative">生成モデル（VAE・拡散モデル）</a></li>
       <li><a href="#restoration">画像復元と最適化</a></li>
-      <li><a href="#pnp">Plug-and-Play と提案手法</a></li>
-      <li><a href="#llm">LLM / VLM（勉強中）</a></li>
+      <li><a href="#pnp">FBS と提案手法</a></li>
+      <li><a href="#presentations">学会発表</a></li>
     </ol>
   </div>
 
@@ -262,9 +261,9 @@
 
   <!-- 5 -->
   <div class="article-section" id="pnp">
-    <h2>5. Plug-and-Play と提案手法</h2>
+    <h2>5. FBS と提案手法</h2>
 
-    <h3>Plug-and-Play（PnP）<span class="cite-marker"><a href="#ref4">[4]</a></span></h3>
+    <h3>FBS<span class="cite-marker"><a href="#ref4">[4]</a></span></h3>
 
     <p>Model-driven の枠組みを保ちつつ、正則化項の近接写像（proximal operator）を DNN デノイザーで置き換える手法が Plug-and-Play である。ADMM や HQS などのアルゴリズムに組み込まれ、解釈性と精度を両立する。</p>
 
@@ -279,9 +278,7 @@
 
     <h3>提案手法：解釈性を持つ拡散モデルの PnP 組み込み</h3>
 
-    <p>拡散モデルを PnP のデノイザーとして組み込む手法が近年提案されているが、確率的サンプリングがメインであり最適化問題としての解釈が不明瞭である。医療画像など信頼性が求められる場面では、「この復元結果は数学的にどのような問題の解か」が重要になる。</p>
-
-    <p>提案手法では、Hurault et al. <span class="cite-marker"><a href="#ref5">[5]</a></span> が提案した Gradient Step Denoiser の枠組みを拡散モデルに拡張する。具体的には拡散モデルのデノイザーに以下の2つの制約を課す。</p>
+    <p>拡散モデルに対して以下の制約を課すことで、数学的な性質が明らかな目的関数を解いていると解釈することができ、収束保証をもつ PnP 画像復元を構築することができる。具体的には、勾配制約を構造的に保証し、Lipschitz 制約を罰則関数によってソフトに制約する。提案手法は、Hurault et al. <span class="cite-marker"><a href="#ref5">[5]</a></span> が提案した Gradient Step Denoiser の枠組みを拡散モデルに拡張したものである。</p>
 
     <ul>
       <li><strong>勾配制約：</strong>デノイザー $D_\theta(\boldsymbol{x})$ がポテンシャル関数 $\phi(\boldsymbol{x})$ の勾配として表せること。すなわち $D_\theta(\boldsymbol{x}) = \nabla_{\boldsymbol{x}} \phi(\boldsymbol{x})$</li>
@@ -294,13 +291,11 @@
 
     <p>この2つを満たすことで、最適化の観点から収束保証のある PnP フレームワークに拡散モデルを組み込むことができる。Lipschitz 制約はネットワークの各層に NablaResNet 構造と重みのスペクトル正規化を組み合わせて実装している。</p>
 
-    <h3>結果と課題</h3>
+    <h3>貢献と課題</h3>
 
-    <p>制約なしの既存手法 DPIR <span class="cite-marker"><a href="#ref6">[6]</a></span> と比較して同等以上の復元性能を達成した。一方で、罰則関数によるソフト制約のため学習が進むにつれて Lipschitz 定数が境界を超えるケースが発生する。現在はハードな制約を維持しつつ表現力も上げる学習手法を試行中。</p>
+    <p>復元アルゴリズムが収束することを確認し、サンプリング時のシード値によって異なる生成をする拡散系の手法に対して、復元が毎回同じとなることで再現性を担保した。また、劣化画像の劣化度合いの情報を必要とする比較手法に対して、劣化度合いがわからない状況においても提案手法は復元性能の劣化度が小さいことを確認し、頑健性を示した。</p>
 
-    <div class="note">
-      現在ジャーナル投稿に向けて、シミュレーション実験と Introduction のブラッシュアップに取り組んでいる。
-    </div>
+    <p>現状実装している制約の実装が2階微分を含むため計算量が多く、学習時間が長くなっている。今後はこの数学的制約を計算量などを抑えた上で実装することができないか考えていきたい。ICASSP論文を執筆中。</p>
   </div>
 
   <!-- References -->
@@ -317,12 +312,35 @@
   </div>
 
   <!-- 6 -->
-  <div class="article-section" id="llm">
-    <h2>6. LLM / VLM（勉強中）</h2>
+  <div class="article-section" id="presentations">
+    <h2>6. 学会発表</h2>
 
-    <p>食事解析アプリ Zubora での Gemini API 活用をきっかけに、大規模言語モデル（LLM）・Vision-Language Model（VLM）の仕組みと応用に興味を持ったので勉強していきたい。</p>
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">国内学会 — 第12回音声・音響・信号処理ワークショップ 2026</h3>
+        <span class="badge">口頭発表</span>
+      </div>
+      <ul class="list">
+        <li>2026年3月2日〜4日、沖縄青年会館にて開催</li>
+        <li>15分の口頭発表を行った</li>
+        <li>画像関連の研究で参加し、音響系の学生が多い中で異分野の研究に触れる貴重な機会となった</li>
+        <li>発表後の質疑応答や立ち話を通じて、聴衆が研究のどの部分に関心を持ちどこに疑問を感じるかという生の反応を得られた</li>
+      </ul>
+      <p style="margin-top:1rem; font-size:0.88rem;">
+        <a href="https://ken.ieice.org/ken/paper/202603049cTq/" target="_blank" rel="noopener">論文ページ（IEICE）</a>
+      </p>
+    </div>
 
-    <p>今夏のインターンなどを通じて実際に扱う機会を増やし、アプリの解析精度改善にも直結させていく予定。</p>
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">国際学会 — EUSIPCO への投稿</h3>
+        <span class="badge">Reject</span>
+      </div>
+      <div class="prose">
+        <p>同時期に国際学会 EUSIPCO にも投稿したが、残念ながらリジェクトとなった。レビュワー3人中2人からは肯定的な評価をいただいたものの、残り1人から新規性や説明の不明瞭さについて指摘を受けた。</p>
+        <p>教授も結果を意外に感じていたほど手応えはあったが、この経験を通じて論文における書き方・伝え方の重要性を改めて認識した。現在は ICASSP 投稿に向けて、Introduction やシミュレーション部分のブラッシュアップに取り組んでいる。</p>
+      </div>
+    </div>
   </div>
 
 </main>
