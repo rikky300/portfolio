@@ -43,7 +43,7 @@ graph TD
 
   subgraph AUTO["自動ループ（1日4回）"]
     direction TB
-    P[候補プール] --&gt; C(["▶ 新規アカウントをAPIで収集&lt;br/&gt;（ここから開始）"])
+    P[候補プール] --&gt; C(["新規アカウントをAPIで収集&lt;br/&gt;（ここから開始）"])
     C --&gt; T[再学習・昇格判定]
     T --&gt; F[(Firestore に反映)]
     F --&gt; M{しきい値チェック}
