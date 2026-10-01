@@ -9,14 +9,96 @@
 <body>
 <nav>
   <ul>
-    <li><a href="research.html">研究</a></li>
-    <li><a href="apps.html">個人開発・コンペ</a></li>
+    <!-- <li><a href="research.html">研究</a></li> -->
+    <!-- <li><a href="apps.html">個人開発・コンペ</a></li> -->
     <!-- <li><a href="business.html">事業</a></li> -->
     <!-- <li><a href="career.html">キャリア</a></li> -->
   </ul>
 </nav>
 
 <main>
+  <div class="hero">
+    <h1>鈴木 力（Riki Suzuki）</h1>
+    <p class="subtitle">慶應義塾大学大学院 修士1年</p>
+    <p class="subtitle"><a href="https://github.com/rikky300" target="_blank" rel="noopener">GitHub: @rikky300</a>　<a href="https://zenn.dev/rikky300" target="_blank" rel="noopener">Zenn: @rikky300</a></p>
+  </div>
+
+  <section>
+    <h2>自己紹介</h2>
+    <div class="prose">
+      <p>AI が発展していく中で、AI にただ使われるのではなく、理解して使う側に行きたいと考えています。</p>
+      <p>大学院では拡散モデルと最適化を用いた画像復元を研究し、個人では AI を組み込んだプロダクトを作っています。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>これまで</h2>
+    <div class="activity-list">
+      <div class="activity-item">
+        <div class="activity-meta">2025.4〜</div>
+        <div class="activity-body">
+          <p><strong>研究：拡散モデルを用いた画像復元</strong></p>
+          <p>AI の理論的な部分で力をつけたいと考えて研究室を選びました。画像にも興味があり、AI と最適化が重なる領域として、応用の広い拡散モデルと画像復元に取り組んでいます。</p>
+          <p>研究室に生成モデルの知見がない中で、拡散モデルを 1 から学んで研究室に共有するところから始めました。わからないことを自分で調べてやり抜く力は、ここで身につきました。</p>
+          <p>拡散モデルに数学的な制約を課して Plug-and-Play 型の復元に組み込み、収束と再現性を持たせています。2026 年 2 月に EUSIPCO に投稿（5 月に不採択）、3 月に国内学会で口頭発表し、査読の指摘を踏まえて改良した内容を 9 月に ICASSP へ投稿しました。</p>
+          <p><a href="https://ken.ieice.org/ken/paper/202603049cTq/" target="_blank" rel="noopener">国内学会の論文ページ</a></p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-meta">2025.9〜</div>
+        <div class="activity-body">
+          <p><strong>Zubora：食事解析アプリ（iOS）</strong></p>
+          <p>研究以外にも幅を広げたいと考え、日常と AI の接点を作る第一歩として、写真で食事の栄養を記録できるアプリを作りました。モデルの学習はせず、API とバーコードの読み取りで作っています。</p>
+          <p>サブスクの総収入は 1 年で 34 ドルと小さいですが、サービスの対価として他人にお金を払ってもらう経験ができました。</p>
+          <p><a href="https://apps.apple.com/jp/app/zubora-%E5%86%99%E7%9C%9F%E3%81%A7%E9%A3%9F%E4%BA%8B%E3%81%AE%E6%A0%84%E9%A4%8A-%E3%82%AB%E3%83%AD%E3%83%AA%E3%83%BC%E8%A7%A3%E6%9E%90-%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E9%A3%AF%E6%8F%90%E6%A1%88/id6763511988" target="_blank" rel="noopener">App Store</a></p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-meta">2025.10〜26.1</div>
+        <div class="activity-body">
+          <p><strong>Kaggle：CSIRO Image2Biomass</strong></p>
+          <p>機械学習に興味があり、以前から友人と SIGNATE などのコンペに出ていました。LLM に詳しい友人など、メンバーの得意分野を合わせれば上位を狙えると考え、勉強も兼ねて 3 人で参加し、銅メダル（368 位 / 3,805 チーム）を取りました。</p>
+          
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-meta">2026.7〜</div>
+        <div class="activity-body">
+          <p><strong>AgentMark：投稿を作る AI エージェント</strong></p>
+          <p>アプリは作れても、広めるところでつまずきました。その部分をエージェントに任せられないかと考え、生成 → 採点 → 書き直しを繰り返すエージェントを作りました。採点はぶれやすい LLM ではなく、自分で学習したモデルに置き換えています。</p>
+          <p><a href="https://github.com/rikky300/marketing_agent" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://zenn.dev/rikky300/articles/99bae2e436dffd" target="_blank" rel="noopener">Zenn</a></p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-meta">2026.8〜</div>
+        <div class="activity-body">
+          <p><strong>IndieMatch：nanoインフルエンサー分析</strong></p>
+          <p>個人開発を通してインフルエンサーマーケティングを知りました。インフルエンサーに PR してもらった場合の効果を予測できれば、個人開発者がマーケティングに踏み出すきっかけになると考え、学習したモデルで予測するサービスを作りました。勉強も兼ねて、データ収集から再学習・監視までのパイプラインを自動化しています。</p>
+          <p>一方で、これは誰でも作れるものだとも感じました。</p>
+          <p><a href="https://github.com/rikky300/indiematch" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">Zenn</a> ／ <a href="https://indie-matching-v2-azure.vercel.app" target="_blank" rel="noopener">サービス</a></p>
+        </div>
+      </div>
+      <div class="activity-item">
+        <div class="activity-meta">2026.9〜</div>
+        <div class="activity-body">
+          <p><strong>tennis-3d-pose：テニス動画からの 3D 姿勢推定</strong></p>
+          <p>誰でもできるわけではなく、インパクトが大きく、自分の経験とつながるものをやりたいと考えました。テニスにはまっていることと、研究で拡散モデルを扱っていることがつながり、テニスの動画から 3D の動きを生成できたら面白いと思って始めました。</p>
+          <p>論文を調べ、学習の結果から研究での経験をもとにアイデアを出して試すのが楽しく、まだ先行できる領域だと感じています。今は、自分で撮った動画で精度を上げる事後学習の段階です。</p>
+          <p><a href="https://github.com/rikky300/tennis-3d-pose" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://tennis-3d-pose-308871972947.asia-northeast1.run.app" target="_blank" rel="noopener">デモ</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>これから</h2>
+    <div class="prose">
+      <p>tennis-3d-pose に力を入れていきます。研究で身につけた理論と、作って公開し改善する経験の両方を活かして、誰でもできるわけではない領域で先行したいと考えています。</p>
+    </div>
+  </section>
+
+  <!-- 以前のトップページ（非表示）
+
   <div class="hero">
     <h1>鈴木 力（Riki Suzuki）</h1>
     <p class="subtitle">慶應義塾大学大学院 修士1年</p>
@@ -31,10 +113,10 @@
       <p>拡散モデルと最適化を用いた画像復元の研究をしています。</p>
       <p>個人では単純なAPIを組み込む食事解析アプリの開発から始めてMarketing Agent（ワークフロー）、nanoインフルエンサー（フォロワーが1,000〜20,000人）のPRシミュレーションの開発を進めていて、AIを組み込んだプロダクトの改善・監視ループの実装と、実際に価値を見出す流れをこなせるようになりたいです。AIコーディングツールによって、AIを組み込むことや作ることは簡単になってきているので、組み込んだ先の管理やビジネス的価値を出すところまでできるようになりたいです。</p>
       <p>スポーツが好きで、スポーツ全般の観戦（オンライン）と、サッカー・テニス・野球を定期的に友人とやっている。</p>
-      <!-- <p>大学院では、給付の奨学金をいただくことができたので、学びにフォーカスできることが嬉しい。親にも学費をかけさせないので、気持ち的にも良い。</p> -->
+      [非表示: <p>大学院では、給付の奨学金をいただくことができたので、学びにフォーカスできることが嬉しい。親にも学費をかけさせないので、気持ち的にも良い。</p> ]
     </div>
 
-    <!-- 学歴・職歴・資格（非表示）
+    [非表示: 学歴・職歴・資格（非表示）
     <div class="profile-grid">
       <div>
         <h3>学歴</h3>
@@ -60,10 +142,10 @@
         </ul>
       </div>
     </div>
-    -->
+    ]
   </section>
 
-  <!--
+  [非表示:
   <section>
     <h2>やってきたこと</h2>
     <div class="prose">
@@ -103,9 +185,9 @@
       </div>
     </div>
   </section>
-  -->
+  ]
 
-  <!--
+  [非表示:
   <section class="page-links-section">
     <h2>Pages</h2>
     <ul class="nav-list">
@@ -115,6 +197,7 @@
       <li><a href="career.html"><span>キャリア像</span><span class="desc">これまでの経験から描く将来像</span></a></li>
     </ul>
   </section>
+  ]
   -->
 </main>
 
