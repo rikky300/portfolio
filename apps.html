@@ -16,7 +16,7 @@
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="research.html">研究・学習</a></li>
+    <li><a href="research.html">研究</a></li>
     <li><a href="apps.html" class="active">個人開発・コンペ</a></li>
     <!-- <li><a href="business.html">事業</a></li> -->
     <!-- <li><a href="career.html">キャリア</a></li> -->
@@ -29,6 +29,60 @@
   <section>
     <h2>個人開発・コンペ</h2>
 
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">tennis-3d-pose — テニス動画からの 3D 姿勢推定</h3>
+      </div>
+      <div class="prose">
+        <p>単眼のテニス動画から、選手の 3D 骨格を推定する拡散モデル。テニスを始めて、プロの体の細かい動きや自分のフォームを 3D で見たいと思ったのがきっかけ。公開モーションで事前学習したモデルを、大規模モデル（SAM 3D Body）の出力で蒸留してテニスの動きに合わせ、Web で試せる形で公開している。</p>
+        <p>詳しくはこちら：<a href="https://github.com/rikky300/tennis-3d-pose" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://tennis-3d-pose-308871972947.asia-northeast1.run.app" target="_blank" rel="noopener">デモ</a></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">IndieMatch — nanoインフルエンサーPRシミュレーション</h3>
+      </div>
+      <div class="prose">
+        <p>フォロワー1,000〜20,000人規模の「nanoインフルエンサー」を探して費用対効果を見積もれるサービス。個人開発したアプリの宣伝がうまくいかない中、友人に紹介してもらった時の反応が良かった経験から、インフルエンサーマーケティングに関心を持ったのがきっかけ。データ収集からモデルの再学習・監視までを自動化している。</p>
+        <p>詳しくはこちら：<a href="https://github.com/rikky300/indiematch" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">リーチ予測モデルの記事</a> ／ <a href="https://zenn.dev/rikky300/articles/ab9c996480daf6" target="_blank" rel="noopener">自動化と監視の記事</a> ／ <a href="https://indie-matching-v2-azure.vercel.app" target="_blank" rel="noopener">サービス</a></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">Marketing Agent — マーケティング自動化エージェント</h3>
+      </div>
+      <div class="prose">
+        <p>LLMエージェントを用いてマーケティング業務を自動化するプロジェクト。アプリは作れても広めるのが苦手だったことがきっかけ。ワークフロー型のエージェント設計を採用し、eval駆動での評価・改善サイクルに取り組んでいる。</p>
+        <p>詳しくはこちら：<a href="https://github.com/rikky300/marketing_agent" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://zenn.dev/rikky300/articles/99bae2e436dffd" target="_blank" rel="noopener">Zenn記事</a> ／ <a href="https://zenn.dev/rikky300/articles/eb49283c9c6438" target="_blank" rel="noopener">改善ループ設計の記事</a></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">Zubora — 食事解析アプリ</h3>
+        <span class="badge">iOS</span>
+      </div>
+      <div class="prose">
+        <p>写真を撮るだけで食事の栄養を記録できるアプリ。大学内のコンビニご飯が多く、何を選ぶか迷うことや健康面への不安がきっかけ。大手アプリより機能を絞ってシンプルにし、サブスクでの収益化も達成した。</p>
+        <p>詳しくはこちら：<a href="https://apps.apple.com/jp/app/zubora-%E5%86%99%E7%9C%9F%E3%81%A7%E9%A3%9F%E4%BA%8B%E3%81%AE%E6%A0%84%E9%A4%8A-%E3%82%AB%E3%83%AD%E3%83%AA%E3%83%BC%E8%A7%A3%E6%9E%90-%E3%82%B3%E3%83%B3%E3%83%93%E3%83%8B%E9%A3%AF%E6%8F%90%E6%A1%88/id6763511988" target="_blank" rel="noopener">App Store</a></p>
+      </div>
+    </div>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">コンペ</h3>
+      </div>
+      <ul class="list">
+        <li>Kaggle CSIRO - Image2Biomass Prediction（2025年10月〜2026年1月）　<strong>銅メダル</strong>　368位 / 3,805チーム（3人チーム）</li>
+        <!-- <li>第1回 国土交通省 地理空間情報データチャレンジ（2024年10月〜12月）　116位 / 452チーム</li> -->
+        <!-- <li>第53回 Beginner限定コンペ アメリカの都市エイムズの住宅価格予測（2024年12月）　90位 / 157チーム</li> -->
+        <!-- <li>NTT AI Engineering Challenge（2026年7月3日〜8月20日）　279位 / 416チーム</li> -->
+      </ul>
+    </div>
+
+    <!-- 以前の内容（非表示。Snobreath・技術の詳細・コンペの解説を含む）
     <div class="box">
       <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
         <h3 style="margin:0;">nanoインフルエンサーPRシミュレーション</h3>
@@ -128,6 +182,7 @@ graph TD
         <p>最後に A と B を 0.35：0.65 の加重平均でアンサンブルし、最終推定値とした。</p>
       </div>
     </div>
+    -->
   </section>
 </main>
 

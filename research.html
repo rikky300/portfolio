@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>研究・学習 | Portfolio</title>
+  <title>研究 | Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
@@ -113,7 +113,7 @@
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
-    <li><a href="research.html" class="active">研究・学習</a></li>
+    <li><a href="research.html" class="active">研究</a></li>
     <li><a href="apps.html">個人開発・コンペ</a></li>
     <!-- <li><a href="business.html">事業</a></li> -->
     <!-- <li><a href="career.html">キャリア</a></li> -->
@@ -123,6 +123,22 @@
 <main>
   <a class="back-link" href="index.html">← ホームへ戻る</a>
 
+  <section>
+    <h2>研究</h2>
+
+    <div class="box">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom:0.75rem;">
+        <h3 style="margin:0;">拡散モデルを用いた収束保証つき画像復元</h3>
+      </div>
+      <div class="prose">
+        <p>拡散モデルを Plug-and-Play 型の画像復元に組み込み、数学的な性質（勾配制約・Lipschitz 制約）を持たせることで、復元アルゴリズムの収束を保証する研究。拡散モデルは高精度な一方、生成のたびに結果が変わり、最適化としての解釈や保証がないことが出発点。</p>
+        <p>収束と再現性（毎回同じ復元になること）を確認し、劣化の度合いがわからない状況でも性能の落ち方が小さいことを示した。</p>
+        <p>発表：<a href="https://ken.ieice.org/ken/paper/202603049cTq/" target="_blank" rel="noopener">第12回 音声・音響・信号処理ワークショップ 2026（口頭発表）</a> ／ ICASSP に向けて論文を執筆中</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 以前の研究・学習メモ（非表示）
   <div class="hero" style="padding-bottom:1.5rem; margin-bottom:1.5rem;">
     <h1 style="font-size:1.6rem;">研究・学習メモ</h1>
     <p class="subtitle">機械学習の基礎から画像復元・拡散モデルまで</p>
@@ -140,7 +156,7 @@
     </ol>
   </div>
 
-  <!-- 1 -->
+  [1]
   <div class="article-section" id="ml-basics">
     <h2>1. 機械学習の基礎</h2>
 
@@ -167,7 +183,7 @@
     <p>これを繰り返すことで損失が小さくなる方向にパラメータが更新される。</p>
   </div>
 
-  <!-- 2 -->
+  [2]
   <div class="article-section" id="deep-learning">
     <h2>2. ニューラルネットワークとディープラーニング</h2>
 
@@ -184,7 +200,7 @@
     <p>画像に対しては全結合層ではなく畳み込み層を用いる。フィルタを空間的に共有することで局所的な特徴（エッジ・テクスチャなど）を効率よく捉え、画像分類の精度が飛躍的に向上した。</p>
   </div>
 
-  <!-- 3 -->
+  [3]
   <div class="article-section" id="generative">
     <h2>3. 生成モデル（VAE・拡散モデル）</h2>
 
@@ -227,7 +243,7 @@
     <p>となる。推論時は純粋なノイズ $\boldsymbol{x}_T \sim \mathcal{N}(\boldsymbol{0}, \boldsymbol{I})$ から逆過程をたどることで画像を生成する。</p>
   </div>
 
-  <!-- 4 -->
+  [4]
   <div class="article-section" id="restoration">
     <h2>4. 画像復元と最適化</h2>
 
@@ -258,7 +274,7 @@
     </ul>
   </div>
 
-  <!-- 5 -->
+  [5]
   <div class="article-section" id="pnp">
     <h2>5. FBS と提案手法</h2>
 
@@ -297,7 +313,7 @@
     <p>現状実装している制約の実装が2階微分を含むため計算量が多く、学習時間が長くなっている。今後はこの数学的制約を計算量などを抑えた上で実装することができないか考えていきたい。ICASSP論文を執筆中。</p>
   </div>
 
-  <!-- References -->
+  [References]
   <div class="article-section" id="references">
     <h2>参考文献</h2>
     <ol class="ref-list">
@@ -310,7 +326,7 @@
     </ol>
   </div>
 
-  <!-- 6 -->
+  [6]
   <div class="article-section" id="presentations">
     <h2>6. 学会発表</h2>
 
@@ -341,6 +357,7 @@
     </div>
   </div>
 
+  -->
 </main>
 
 <footer>© 2026 Riki Suzuki</footer>
