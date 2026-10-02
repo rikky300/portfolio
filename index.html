@@ -26,7 +26,7 @@
   <section>
     <h2>自己紹介</h2>
     <div class="prose">
-      <p>AI が発展していく中で、AI にただ使われるのではなく、理解して使う側に行きたいと考えています。</p>
+      <p>生成モデルを、評価できる形で実際に使われるものに落とすことに取り組んでいます。</p>
       <p>大学院では拡散モデルと最適化を用いた画像復元を研究し、個人では AI を組み込んだプロダクトを作っています。</p>
     </div>
   </section>
@@ -65,7 +65,8 @@
         <div class="activity-meta">2026.7〜</div>
         <div class="activity-body">
           <p><strong>AgentMark：投稿を作る AI エージェント</strong></p>
-          <p>アプリは作れても、広めるところでつまずきました。その部分をエージェントに任せられないかと考え、生成 → 採点 → 書き直しを繰り返すエージェントを作りました。採点はぶれやすい LLM ではなく、ファインチューニングした BERT に置き換えています。</p>
+          <p>アプリは作れても、広めるところでつまずきました。その部分をエージェントに任せられないかと考え、生成 → 採点 → 書き直しを繰り返すエージェントを作りました。</p>
+          <p>LLM による採点は基準がぶれ、LLM が書いたものを LLM が合格にしてしまうため、採点はファインチューニングした BERT に置き換えました。</p>
           <p><a href="https://github.com/rikky300/marketing_agent" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://zenn.dev/rikky300/articles/99bae2e436dffd" target="_blank" rel="noopener">Zenn</a></p>
         </div>
       </div>
@@ -74,7 +75,8 @@
         <div class="activity-body">
           <p><strong>IndieMatch：nanoインフルエンサー分析</strong></p>
           <p>個人開発を通してインフルエンサーマーケティングを知りました。インフルエンサーに PR してもらった場合の効果を予測できれば、個人開発者がマーケティングに踏み出すきっかけになると考え、学習したモデルで予測するサービスを作りました。勉強も兼ねて、データ収集から再学習・監視までのパイプラインを自動化しています。</p>
-          <p>一方で、これは誰でも作れるものだとも感じました。</p>
+          <p>機械学習を使わない基準（過去の中央値など）と同じ分割・同じ指標で比べてモデルの上積みを測り、コメントの予測では効いている一方、いいねの予測は上積みが小さくモデルを外す候補だと判断しました。</p>
+          <p>一方で、仕組み自体は再現しやすく、差をつけるには専門性と結びつける必要があると感じました。</p>
           <p><a href="https://github.com/rikky300/indiematch" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://zenn.dev/rikky300/articles/feeec089571c01" target="_blank" rel="noopener">Zenn</a> ／ <a href="https://indie-matching-v2-azure.vercel.app" target="_blank" rel="noopener">サービス</a></p>
         </div>
       </div>
@@ -84,6 +86,7 @@
           <p><strong>tennis-3d-pose：テニス動画からの 3D 姿勢推定</strong></p>
           <p>誰でもできるわけではなく、インパクトが大きく、自分の経験とつながるものをやりたいと考えました。テニスにはまっていることと、研究で拡散モデルを扱っていることがつながり、テニスの動画から 3D の動きを生成できたら面白いと思って始めました。</p>
           <p>論文を調べ、学習の結果から研究での経験をもとにアイデアを出して試すのが楽しく、まだ先行できる領域だと感じています。今は、自分で撮った動画で精度を上げる事後学習の段階で、いちばん力を入れているプロジェクトです。</p>
+          <p>蒸留の効果は、学習に使っていない動画で大規模モデル（SAM 3D Body）との誤差を測って評価し、公開データだけでは改善が小さい（110 → 107 mm）ことも示しました。</p>
           <p><a href="https://github.com/rikky300/tennis-3d-pose" target="_blank" rel="noopener">GitHub</a> ／ <a href="https://tennis-3d-pose-308871972947.asia-northeast1.run.app" target="_blank" rel="noopener">デモ</a></p>
         </div>
       </div>
